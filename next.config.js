@@ -3,7 +3,15 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["image.tmbd.org"]
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'image.tmdb.org',
+        port: '',
+        pathname: '/t/p/**',
+      },
+    ],
+     
   }
 }
 

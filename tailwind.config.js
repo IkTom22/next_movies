@@ -2,11 +2,14 @@
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-    './app/**/*.{js,ts,jsx,tsx}'
+    './components/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
-    extend: {},
+    extend: {
+      height: {
+        128: '40rem'
+      }
+    },
     fontFamily: {
       raleway: ['Raleway', 'sans-sarif']
     }

@@ -1,7 +1,43 @@
-import {NextPage} from 'next'
+import React from 'react'
+//Types
+import { NextPage } from 'next'
+//fetch hook
+import { useFetchMovies } from '@/api/fetchHooks'
+//Config
+import { IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE } from '@/config'
+//Components
+import Header from '@/components/Header/Header'
+import Hero from '@/components/Hero/Hero'
+import Grid from '@/components/Grid/Grid'
+import Card from '@/components/Card/Card'
+import Spinner from '@/components/Spinner/Spinner'
 
 const Home: NextPage = () => {
-  return <main >RMDB</main>
+  const [ query, setQuery ] = React.useState( '' )
+  const {data, fetchNextPage, isLoading, isFetching, error}= useFetchMovies(query)
+
+  console.log(data)
+
+  return (
+    <main className='relative h-screen overflow-y-scroll'>
+      <Header setQuery={ setQuery } />
+      { !query && data && data.pages ? (
+        <Hero
+          imgUrl={
+            data.pages[ 0 ].results[ 0 ]?.backdrop_path ?
+            IMAGE_BASE_URL + BACKDROP_SIZE + data.pages[ 0 ].results[ 0 ].backdrop_path :
+              '/no_image.jpg'
+          }
+          title={ data.pages[ 0 ].results[ 0 ].title }
+          text={data.pages[0].results[0].overview}
+        />
+      ): null}
+      
+      <Grid />
+      <Card />
+      <Spinner />
+    </main>
+  )
 }
 
 export default Home
