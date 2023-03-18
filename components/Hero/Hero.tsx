@@ -1,4 +1,5 @@
 import Image from 'next/image'
+
 type Props = {
     imgUrl: string
     title: string
@@ -13,7 +14,7 @@ const Hero = ( { imgUrl, title, text }: Props ) => (
                 <p className='text-lg md:text-xl'>{ text }</p>
             </div>
         </div>
-        <Image priority style={ { objectFit: 'cover', objectPosition: 'center'} } fill src={imgUrl}alt='hero image' />
+        <Image priority style={ { objectFit: 'cover', objectPosition: 'center'} } fill src={imgUrl} alt='hero image' />
     </div>
 )
 export default Hero

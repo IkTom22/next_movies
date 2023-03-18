@@ -5,6 +5,7 @@ type Props = {
     setQuery: React.Dispatch<React.SetStateAction<string>>;
 }
 
+const TIME = 300//ms
 
 const SearchInput = ( { setQuery }: Props ) => {
     const [ text, setText ] = React.useState( '' )
@@ -18,7 +19,7 @@ const SearchInput = ( { setQuery }: Props ) => {
         
         timer.current = setTimeout( () => {
             setQuery(value)
-        }, 400)
+        }, TIME)
     }
     
     return (
