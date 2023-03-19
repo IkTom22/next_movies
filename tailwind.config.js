@@ -15,6 +15,9 @@ module.exports = {
     },
     fontFamily: {
       raleway: ['Raleway', 'sans-sarif']
+    },
+    minHeight: {
+      128: '40rem'
     }
   },
   plugins: [],

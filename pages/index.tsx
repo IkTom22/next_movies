@@ -21,6 +21,7 @@ const Home: NextPage = () => {
     const { scrollTop, clientHeight, scrollHeight } = e.currentTarget;
     if(scrollHeight - scrollTop === clientHeight) fetchNextPage()
   }
+  if(error) return <div>Oh nooooo something went wrong</div>
   return (
     <main className='relative h-screen overflow-y-scroll' onScroll={handleScroll}>
       <Header setQuery={ setQuery } />
